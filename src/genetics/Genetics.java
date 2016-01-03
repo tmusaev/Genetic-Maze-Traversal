@@ -1,6 +1,7 @@
 package genetics;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Genetics {
     static final int populationSize = 100;
@@ -17,6 +18,7 @@ public class Genetics {
             c.fitness = maze.computeFitness();
             maze.Reset();
         }
+        Collections.sort(population);
         
         for(Cell c : population) {
             System.out.println(c.fitness);
