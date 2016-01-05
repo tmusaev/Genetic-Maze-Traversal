@@ -2,7 +2,6 @@ package genetics;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class Genetics {
     public static final int populationSize = 100;
