@@ -15,19 +15,17 @@ public class Genetics {
         ArrayList<Cell> population = 
                 cellCreator.createFirstGen(populationSize, pathLength);
         
-        for(Cell c : population) {
+        for (Cell c : population) {
             maze.traversePath(c.path);
             c.fitness = maze.computeFitness();
             maze.Reset();
         }
         Collections.sort(population);
-        for(int i = 1; i <= populationSize/4; i++)
+        for (int i = 1; i <= populationSize/4; i++)
             population.remove(populationSize-i);
         
-        for(int j = 0; j < numOfGenerations; j++)
-        {
-            for(int i = 0; i < populationSize/2; i+=2)
-            {
+        for (int j = 0; j < numOfGenerations; j++) {
+            for (int i = 0; i < populationSize/2; i+=2) {
                 Cell offspring = cellBreeder.breedCells(population.get(i), population.get(i+1));
                 maze.traversePath(offspring.path);
                 offspring.fitness = maze.computeFitness();
@@ -37,7 +35,7 @@ public class Genetics {
             Collections.sort(population);
         }
             
-        for(Cell c : population) {
+        for (Cell c : population) {
           System.out.println(c.fitness+"  "+c.path);
         }
         

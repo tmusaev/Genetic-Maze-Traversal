@@ -13,9 +13,8 @@ public class CellBreeder {
         offspring.append(dad.path.substring(cutoff, dad.path.length()));
         Random rand = new Random();
         //Mutate
-        for(int i = 0; i < offspring.length(); i++)
-        {
-            if(rand.nextDouble() <= mutationRate)
+        for (int i = 0; i < offspring.length(); i++) {
+            if (rand.nextDouble() <= mutationRate)
                 offspring.setCharAt(i, (char)(rand.nextInt(4)+48));
         }
         Cell cell = new Cell();
