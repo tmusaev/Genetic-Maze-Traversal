@@ -4,13 +4,20 @@ import java.util.Random;
 import org.apache.commons.math3.distribution.NormalDistribution;
 
 public class CellBreeder {
+    final static double mutationRate = 0.1;
     
     Cell breedCells(Cell mom, Cell dad) {
         int cutoff = generateCutoff(mom.path.length());
-        System.out.println("Cutoff: "+cutoff);
         StringBuilder offspring = new StringBuilder();
         offspring.append(mom.path.substring(0, cutoff));
         offspring.append(dad.path.substring(cutoff, dad.path.length()));
+        Random rand = new Random();
+        //Mutate
+        for(int i = 0; i < offspring.length(); i++)
+        {
+            if(rand.nextDouble() <= mutationRate)
+                offspring.setCharAt(i, (char)(rand.nextInt(4)+48));
+        }
         Cell cell = new Cell();
         cell.path = offspring.toString();
         return cell;
