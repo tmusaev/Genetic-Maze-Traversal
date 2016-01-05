@@ -24,6 +24,7 @@ public class Genetics {
         for (int i = 1; i <= populationSize/4; i++)
             population.remove(populationSize-i);
         
+        //cycle of life
         for (int j = 0; j < numOfGenerations; j++) {
             for (int i = 0; i < populationSize/2; i+=2) {
                 Cell offspring = cellBreeder.breedCells(population.get(i), population.get(i+1));
